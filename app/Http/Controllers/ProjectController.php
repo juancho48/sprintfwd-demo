@@ -43,10 +43,10 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(Project $project)
+    public function show(Project $project)
     {
         return Inertia::render('Projects/Show', [
-            'project' => compact($project),
+            'project' => $project,
         ]);
     }
 

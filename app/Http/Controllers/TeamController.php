@@ -45,9 +45,11 @@ class TeamController extends Controller
      * @param  \App\Models\Team  $team
      * @return \Illuminate\Http\Response
      */
-    public function edit(Team $team)
+    public function show(Team $team)
     {
-        //
+        return Inertia::render('Teams/Show', [
+            'team' => $team,
+        ]);
     }
 
     /**
@@ -59,7 +61,13 @@ class TeamController extends Controller
      */
     public function update(Request $request, Team $team)
     {
-        //
+        $project =  $team->update(
+            $request->validate([
+                'team_name' => 'required|unique:teams|string|max:255',
+            ])
+        );
+
+        return redirect(route('teams.index'));
     }
 
     /**

@@ -1,10 +1,10 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
-import UpdateTeamForm from './Partials/UpdateTeamForm.vue';
+import UpdateProjectForm from './Partials/UpdateProjectForm.vue';
 
 defineProps({
-    team: {
+    project: {
         type: Object,
         required: true,
     },
@@ -12,16 +12,16 @@ defineProps({
 </script>
 
 <template>
-    <Head title="Team" />
+    <Head title="Project" />
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Teams</h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Projects</h2>
         </template>
 
         <div class="py-12">
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <UpdateTeamForm class="max-w-xl" :team="team"/>
+                <UpdateProjectForm class="max-w-xl" :project="project"/>
             </div>
         </div>
     </AuthenticatedLayout>
